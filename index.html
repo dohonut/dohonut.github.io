@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="소셜트러스트는 소셜 네트워크 데이터 기반의 진정성 있는 마케팅 서비스를 제공합니다. SNS 빅데이터 분석, 실시간 모니터링, AI 기반 타겟팅 솔루션을 통해 효과적인 마케팅 전략을 제시합니다.">
+    <meta name="keywords" content="소셜트러스트, SNS 마케팅, 빅데이터 분석, 소셜 네트워크, 디지털 마케팅, AI 마케팅">
+    
+    <meta property="og:title" content="소셜트러스트 - 소셜 네트워크 데이터 기반 마케팅">
+    <meta property="og:description" content="소셜 네트워크의 빅데이터를 활용하여 타겟 고객에게 효과적인 접근과 진정성 있는 콘텐츠를 제공합니다.">
+    <meta property="og:image" content="images/og-image.png">
+    <meta property="og:url" content="https://social-trust.io">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <title>소셜트러스트 - 소셜 네트워크 데이터 기반 마케팅</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -12,7 +22,9 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="/">소셜트러스트</a>
+                <a href="javascript:window.location.href=window.location.href">
+                    <img src="images/logo.png" alt="소셜트러스트" height="40">
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="#about">회사소개</a></li>
@@ -34,7 +46,7 @@
                 <a href="#contact" class="cta-button">서비스 알아보기 →</a>
             </div>
             <div class="hero-graphic">
-                <!-- SVG 네트워크 그래픽이 들어갈 자리 -->
+                <img data-src="images/network.png" alt="소셜 네트워크" class="network-image" loading="lazy">
             </div>
         </section>
 
@@ -152,41 +164,70 @@
                 <h2 class="section-title">레퍼런스</h2>
                 <div class="references-grid">
                     <div class="reference-card">
-                        <img src="images/tirtir-logo.png" alt="티르티르">
+                        <div class="logo-container">
+                            <img data-src="images/tirtir-logo.png" alt="티르티르" loading="lazy">
+                        </div>
                         <h3>티르티르</h3>
                     </div>
                     <div class="reference-card">
-                        <img src="images/lotteon-logo.png" alt="롯데온">
+                        <div class="logo-container">
+                            <img src="images/lotteon-logo.png" alt="롯데온">
+                        </div>
                         <h3>롯데온</h3>
                     </div>
                     <div class="reference-card">
-                        <img src="images/newon-logo.png" alt="뉴온">
+                        <div class="logo-container">
+                            <img src="images/nuon-logo.png" alt="뉴온">
+                        </div>
                         <h3>뉴온</h3>
                     </div>
                     <div class="reference-card">
-                        <img src="images/louisquatorze-logo.png" alt="루이까또즈">
+                        <div class="logo-container">
+                            <img src="images/louisquatorze-logo.png" alt="루이까또즈">
+                        </div>
                         <h3>루이까또즈</h3>
+                    </div>
+                    <div class="reference-card">
+                        <div class="logo-container">
+                            <img src="images/abm-logo.png" alt="에이바이오머티리얼즈">
+                        </div>
+                        <h3>루시도르</h3>
+                    </div>
+                    <div class="reference-card">
+                        <div class="logo-container">
+                            <img src="images/joongwon-logo.png" alt="중원">
+                        </div>
+                        <h3>슈퍼대디</h3>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <section id="contact" class="section bg-light">
             <div class="container">
                 <h2 class="section-title">문의하기</h2>
+                <p class="section-description">
+                    궁금하신 점이 있으시다면<br>
+                    언제든지 문의해 주세요.
+                </p>
                 <div class="contact-content">
-                    <form class="contact-form" id="contactForm">
-                        <input type="text" placeholder="이름" required>
-                        <input type="email" placeholder="이메일" required>
-                        <textarea placeholder="메시지를 입력하세요" required></textarea>
+                    <form class="contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
+                        <input type="text" name="name" placeholder="이름" required minlength="2" 
+                               oninvalid="this.setCustomValidity('이름을 2자 이상 입력해주세요')"
+                               oninput="this.setCustomValidity('')">
+                        <input type="email" name="email" placeholder="이메일" required 
+                               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                               oninvalid="this.setCustomValidity('올바른 이메일 주소를 입력해주세요')"
+                               oninput="this.setCustomValidity('')">
+                        <input type="tel" name="phone" placeholder="전화번호 (예: 010-1234-5678)" 
+                               pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" required
+                               oninvalid="this.setCustomValidity('올바른 전화번호 형식을 입력해주세요 (예: 010-1234-5678)')"
+                               oninput="this.setCustomValidity('')">
+                        <textarea name="message" placeholder="문의하실 내용을 입력해 주세요." required minlength="10"
+                                  oninvalid="this.setCustomValidity('문의 내용을 10자 이상 입력해주세요')"
+                                  oninput="this.setCustomValidity('')"></textarea>
                         <button type="submit" class="submit-button">문의하기</button>
                     </form>
-                    <div class="contact-info">
-                        <h3>연락처 정보</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> 서울특별시 강남구</p>
-                        <p><i class="fas fa-phone"></i> 02-1234-5678</p>
-                        <p><i class="fas fa-envelope"></i> contact@social-trust.io</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -197,29 +238,32 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <h3>소셜트러스트</h3>
-                    <p>서울특별시 강남구 테헤란로 501, 6층</p>
-                    <p>사업자등록번호: 123-45-67890</p>
+                    <p>서울 마포구 마포대로 122, 11층</p>
+                    <p>사업자등록번호: 749-87-01482</p>
                     <p>대표: 김이식</p>
-                    <p>&copy; 2025 소셜트러스트. All rights reserved.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
+                        <h4>메뉴</h4>
                         <ul>
-                            <h4>회사</h4>
                             <li><a href="#about">회사소개</a></li>
                             <li><a href="#services">서비스</a></li>
                             <li><a href="#achievements">성과</a></li>
                             <li><a href="#references">레퍼런스</a></li>
+                            <li><a href="#contact">문의하기</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h4>연락처</h4>
                         <ul>
-                            <li>Tel: 02-1234-5678</li>
-                            <li>Email: contact@social-trust.io</li>
+                            <li>Tel: 010-7490-2371</li>
+                            <li>Email: info@social-trust.io</li>
                         </ul>
                     </div>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 소셜트러스트. All rights reserved.</p>
             </div>
         </div>
     </footer>
