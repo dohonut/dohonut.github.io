@@ -44,7 +44,7 @@ document.querySelectorAll('.section').forEach(section => {
 });
 
 // 컨택트 폼 제출
-const handleSubmit = debounce(async (event) => {
+const handleSubmit = async (event) => {
     event.preventDefault();
     
     const form = event.target;
@@ -96,7 +96,7 @@ const handleSubmit = debounce(async (event) => {
         submitButton.textContent = '전송 중...';
         
         const formData = new FormData(form);
-        const response = await fetch('https://script.google.com/macros/s/AKfycbyBsNUQI1L4K2WjDusozs4Yd_V8EdGN_8LNSHsUXO8W8hL1fcxZxqMP-XXRmNlYdEiS5Q/exec', {
+        await fetch('https://script.google.com/macros/s/AKfycbyBsNUQI1L4K2WjDusozs4Yd_V8EdGN_8LNSHsUXO8W8hL1fcxZxqMP-XXRmNlYdEiS5Q/exec', {
             method: 'POST',
             body: formData,
             mode: 'no-cors'
@@ -114,7 +114,7 @@ const handleSubmit = debounce(async (event) => {
     }
     
     return false;
-}, 300);
+};
 
 // 전화번호 자동 하이픈 추가
 document.querySelector('input[name="phone"]').addEventListener('input', 
