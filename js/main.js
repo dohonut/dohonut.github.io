@@ -145,6 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     images.forEach(img => imageObserver.observe(img));
+
+    // 로고 클릭 이벤트 리스너 추가
+    const logoLink = document.getElementById('logoLink');
+    if (logoLink) {
+        logoLink.addEventListener('click', (event) => {
+            event.preventDefault(); // 기본 링크 동작 방지
+            scrollToTopAndReload();
+        });
+    }
 });
 
 // 로고 클릭 시 최상단으로 스크롤 후 새로고침
